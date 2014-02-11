@@ -61,8 +61,8 @@ public class SystemConfigurator extends Configurator {
 	 *         -3 - другая ошибка<br>
 	 */
 	public int loadProperties(String fileName) {
-		Properties p = new Properties();
-		try {
+        try {
+            Properties p = new Properties();
 			p.load(new FileInputStream(new File(fileName)));
 
 			if (p.getProperty("ISO_SERVER_HOST") != null) ISO_SERVER_HOST = p.getProperty("ISO_SERVER_HOST");

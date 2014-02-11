@@ -24,12 +24,12 @@ public class BusinessConfigurator extends Configurator {
 	}
 
 	public int loadProperties(String fileName) {
+        try{
 		//if (!countryProfile.equals(fileName) && !countryProfile.isEmpty() && !countryProfile.equals(""))
 		//    countryProfile= fileName;
-		System.out.println("[BusinessConfigurator] Business conf fileName: " + fileName);
+        System.out.println("[BusinessConfigurator] Business conf fileName: " + fileName);
 		Properties p = new Properties();
 
-		try {
 			p.load(new FileInputStream(new File(fileName)));
 
 			if (p.getProperty("DATAPOOL") != null)

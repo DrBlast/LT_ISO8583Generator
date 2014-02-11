@@ -50,7 +50,10 @@ public class ProfileGenerator {
 	private int                 j     = -1;
 	CountryEnum countryCode = CountryEnum.RU;
 
-
+    /**
+     * Получение типа транзакции по профилю
+     * @return
+     */
 	public TrnTypeEnum getNextPercentProfile() {
 		TrnTypeEnum resultTrnTypeEnum = TrnTypeEnum.CASHOUT_ATM;
 		if (sConf == null)
@@ -85,22 +88,32 @@ public class ProfileGenerator {
 		return resultTrnTypeEnum;
 	}
 
+    /**
+     * Отправка следующей транзакции в сответствии с профилем
+     * @return
+     */
 	public int sendNextPercentProfile() {
-		countryCode = countryGenerator.getNextCountryProfile();
-		if (countryCode == null) {
-			return -1;
-		}
-		TrnTypeEnum transactionType = getNextPercentProfile();
-		if (transactionType == null) {
-			return -2;
-		}
-		new Send1100TxnTask(isoClient, randomISOFields.getCard(),
-		                    randomISOFields.generateRandomNumberWithPrefix(10, 12, "0", true, 7),
-		                    randomISOFields.getProcCode(transactionType),
-		                    transactionType,
-		                    randomISOFields.getTerminalType(transactionType),
+        try{
+            countryCode = countryGenerator.getNextCountryProfile();
+            if (countryCode == null) {
+                return -1;
+            }
+            TrnTypeEnum transactionType = getNextPercentProfile();
+            if (transactionType == null) {
+                return -2;
+            }
+            new Send1100TxnTask(isoClient, randomISOFields.getCard(),
+                                randomISOFields.generateRandomNumberWithPrefix(10, 12, "0", true, 7),
+                                randomISOFields.getProcCode(transactionType),
+                                transactionType,
+                                randomISOFields.getTerminalType(transactionType),
 		                    countryCode);
-		return 0;
+		    return 0;
+        }catch(Exception ex){
+            LoadGenerator.logCommon.warning("[ProfileGenerator] Error during prepare and send transaction:"+ex);
+            ex.printStackTrace();
+            return -3;
+        }
 
 	}
 
@@ -108,7 +121,7 @@ public class ProfileGenerator {
 	private static ProfileGenerator profileGenerator = null;
 
 	/**
-	 * Получение профиля генератора
+	 * Получение инстанса профиля генератора
 	 *
 	 * @param isoClient
 	 * @return ProfileGenerator

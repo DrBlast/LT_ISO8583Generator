@@ -1,5 +1,7 @@
 package ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.configuration;
 
+import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.LoadGenerator;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,18 +28,18 @@ public class ProfileConfigurator extends Configurator {
 
 
 	public int loadProperties(String fileName) {
+        try {
 		//if (!countryProfile.equals(fileName) && !countryProfile.isEmpty() && !countryProfile.equals(""))
 		//    countryProfile= fileName;
-		System.out.println("[ProfileConfigurator] Profile conf fileName: " + fileName);
+            System.out.println("[ProfileConfigurator] Profile conf fileName: " + fileName);
 		Properties p = new Properties();
 
-		try {
 			p.load(new FileInputStream(new File(fileName)));
 			Set<String> set = p.stringPropertyNames();
 			Iterator<String> propertyIterator = set.iterator();
 
 			String propertyKey;
-			System.out.println("[ProfileConfigurator] Profile settings:");
+            System.out.println("[ProfileConfigurator] Profile settings:");
 			while (propertyIterator.hasNext()) {
 				propertyKey = propertyIterator.next().toString();
 				//	System.out.print(propertyKey + "=");

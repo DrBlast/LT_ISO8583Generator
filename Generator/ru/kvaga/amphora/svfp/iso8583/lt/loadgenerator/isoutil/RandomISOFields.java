@@ -23,7 +23,7 @@ public class RandomISOFields {
 	private RandomISOFields() {
 		//заполнение пула карточек
 		loadCardIDs(BusinessConfigurator.getInstance().DATAPOOL);
-		loadCurrency("conf/CurrencyConfiguration.cfg");
+		loadCurrency("conf/ISO8583.LT.LoadGenerator.Currency.cfg");
 	}
 
 	private static RandomISOFields randomISOFields = null;

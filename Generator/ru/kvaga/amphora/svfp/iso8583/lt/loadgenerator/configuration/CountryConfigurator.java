@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class CountryConfigurator extends Configurator {
-	public static String countryProfile = "conf/countryConfiguration.cfg";
+	public static String countryProfile = "conf/ISO8583.LT.LoadGenerator.Country.cfg";
 
 	/**
 	 * Получение инстанса Конфигурации Стран
@@ -40,18 +40,18 @@ public class CountryConfigurator extends Configurator {
 	 */
 
 	public int loadProperties(String fileName) {
+        try {
 		//if (!countryProfile.equals(fileName) && !countryProfile.isEmpty() && !countryProfile.equals(""))
 		//    countryProfile= fileName;
-		System.out.println("CountryProfile conf fileName: " + countryProfile);
+            System.out.println("[CountryConfigurator] CountryProfile conf fileName: " + countryProfile);
 		Properties p = new Properties();
 
-		try {
 			p.load(new FileInputStream(new File(countryProfile)));
 			Set<String> set = p.stringPropertyNames();
 			Iterator<String> propertyIterator = set.iterator();
 
 			String propertyKey;
-			System.out.println("CountryProfile settings:");
+            System.out.println("[CountryConfigurator] CountryProfile settings:");
 			while (propertyIterator.hasNext()) {
 				propertyKey = propertyIterator.next().toString();
 				//	System.out.print(propertyKey + "=");

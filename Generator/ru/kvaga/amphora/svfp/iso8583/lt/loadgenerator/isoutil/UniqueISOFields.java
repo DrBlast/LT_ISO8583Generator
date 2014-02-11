@@ -13,6 +13,7 @@ public class UniqueISOFields {
 	private UniqueISOFields(){}
 	private static UniqueISOFields uniqueISOFields=null;
 	private Storage storage = Storage.getInstance();
+    private static long   TestTxnID = 0;
 
 	/**
 	 * Получение уникальных значений
@@ -51,6 +52,32 @@ public class UniqueISOFields {
 		// требуется перейти к прежней версии генерации чисел.
 		return format37FieldToCorrectLength(""+storage.getNextTraceNumber());
 	}
+
+    /**
+     * Увеличение номера TestTxnID
+     */
+    public static void incrementTestTxnID() {
+        TestTxnID++;
+    }
+
+    /**
+     * Очистка номера TestTxnID
+     */
+    public static void resetTestTxnID() {
+        TestTxnID = 0;
+    }
+
+    /**
+     * Получение номера TestTxnIDtoString
+     * @return String
+     */
+    public static String getTestTxnID() {
+        String TestTxnIDtoString = "";
+        for (int i = 0; i < Long.toString(TestTxnID).length(); i++) {
+            TestTxnIDtoString = "0" + Long.toString(TestTxnID);
+        }
+        return TestTxnIDtoString;
+    }
 
 	/**
 	 * Получение откорректированного по длинне значения 37 поля ISO8583 сообщения

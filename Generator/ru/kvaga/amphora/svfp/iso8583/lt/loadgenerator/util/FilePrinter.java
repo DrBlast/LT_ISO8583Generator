@@ -117,7 +117,7 @@ public class FilePrinter {
 			System.out.println("check HDD write speed("+chars.length/1024/1024+" Mb). method 3:  " + chars.length * 1000L / time + " MB/s.");
 
 			//check HDD write speed. method 4:
-			List<String> strLines = new ArrayList();
+			List<String> strLines = new ArrayList<String>();
 			strLines.add(text);
 			start = System.nanoTime();
 			writeTextFile(strLines, "a.txt");

@@ -16,6 +16,7 @@ public class LoadStatistic {
 	private static long sendTxnsThreads = 0; //количество открытых потоков на отправку сообщений
 	private String timeStartScenario;
 	private String timeStopScenario;
+	@SuppressWarnings("unused")
 	private long sumTxnResponceTimes = 0,
 				 countTxnResponces = 0;
 
@@ -49,7 +50,7 @@ public class LoadStatistic {
 	/**
 	 * Очистка счетчика потоков на отправку транзакции
 	 */
-	public static void send1100ThreadCountClean() {
+	public void send1100ThreadTimeClean() {
 		try {
 			sendTxnsThreads = 0;
 		} catch (Exception ex) {
@@ -61,7 +62,7 @@ public class LoadStatistic {
 	 * Получение текущего количества отработавших потоков на отправку транзакций
 	 * @return long
 	 */
-	public static long getSendTxnsThreadCount() {
+	public static long getSendTxnsThreadTime() {
 		return sendTxnsThreads;
 	}
 

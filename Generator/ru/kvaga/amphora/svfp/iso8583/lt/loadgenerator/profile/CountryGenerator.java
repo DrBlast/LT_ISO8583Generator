@@ -1,6 +1,5 @@
 package ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.profile;
 
-import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.LoadGenerator;
 import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.configuration.CountryConfigurator;
 import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.TempData.CountryEnum;
 import ru.kvaga.amphora.svfp.loadGenerator.log.LogInit;
@@ -17,6 +16,7 @@ public class CountryGenerator {
 	private int                                     currentIteration    = 0;
 
 	private CountryGenerator() {
+		@SuppressWarnings("unused")
 		CountryConfigurator countryConfigurator = CountryConfigurator.getInstance();
 		for (CountryEnum country : CountryEnum.values()) {
 			countryGeneratorMap.put(country, 0);

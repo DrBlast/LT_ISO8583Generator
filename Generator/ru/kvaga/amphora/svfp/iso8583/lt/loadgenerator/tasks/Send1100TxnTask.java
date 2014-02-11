@@ -116,7 +116,7 @@ public class Send1100TxnTask implements Runnable {
 		String mccID = Integer.toString(randomISOFields.getMCC(trnType));
 		String posDataCode = randomISOFields.getPOSDateCode(trnType);
 		String currency = rnd.nextBoolean() ? "810" : "840";
-		String field11Value = LoadGenerator.getTestTxnID();
+		String field11Value = uniqueISOFields.getTestTxnID();
 
 		//если предыдущая транзакция для выбранной карты из другой страны была менее, чем секунду назад,
 		//а также по профилю фродов не должно быть фрода (транзакции из разных стран),
