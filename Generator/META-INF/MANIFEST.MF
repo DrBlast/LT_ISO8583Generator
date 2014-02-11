@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.LoadGenerat
+ or
+

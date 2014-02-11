@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="GUI"/>
+	<classpathentry kind="src" path="ISO8583"/>
+	<classpathentry kind="src" path="Generator"/>
+	<classpathentry kind="src" path="Logger"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/MS-LOAD001/!akuzmin/Workspace/New_LT_ISO8583_Generator/lib/SMP/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/MS-LOAD001/!akuzmin/Workspace/New_LT_ISO8583_Generator/lib/SMP/com.zip"/>
+	<classpathentry kind="lib" path="C:/MS-LOAD001/!akuzmin/Workspace/New_LT_ISO8583_Generator/lib/SMP/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/MS-LOAD001/!akuzmin/Workspace/New_LT_ISO8583_Generator/lib/SMP/jpos1.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/MS-LOAD001/!akuzmin/Workspace/New_LT_ISO8583_Generator/lib/SMP/junit-4.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/MS-LOAD001/!akuzmin/Workspace/New_LT_ISO8583_Generator/lib/SMP/log4j-1.2.13.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
