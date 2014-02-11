@@ -3,6 +3,7 @@ package ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator;
 import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.TempData.CountryEnum;
 import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.configuration.CountryConfigurator;
 import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.profile.CountryGenerator;
+import ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.util.YetAnotherSleep;
 
 import java.util.*;
 
@@ -16,12 +17,13 @@ import static ru.kvaga.amphora.svfp.iso8583.lt.loadgenerator.util.FilePrinter.te
  * Тестовый класс проверки функций
  */
 
+@SuppressWarnings("unused")
 public class TestClass {
 
 	public static void main(String[] args) {
 		try {
 		/*CountryConfigurator cConf = CountryConfigurator.getInstance();
-		cConf.loadProperties("conf/countryConfiguration.cfg");
+		cConf.loadProperties("conf/ISO8583.LT.LoadGenerator.Country.cfg");
 		CountryGenerator cGen = CountryGenerator.getInstance();
 		CountryEnum current = CountryEnum.BG;
 		for (int i = 0; i < 100; i++)
@@ -30,7 +32,7 @@ public class TestClass {
 			//	testFileWriteSpeed();
 
 			//sleep method with high CPU usage
-			long starttime = System.nanoTime();
+		/*	long starttime = System.nanoTime();
 			long reqTPS = 100;
 			double sleepTime= 1000/reqTPS;
 			long goalTime=starttime+(long)(sleepTime*1000000);
@@ -57,7 +59,10 @@ public class TestClass {
 			}
 			for (int i = 0; i < 100; i++) {
 				System.out.println(q.remove()+" nanos");
-			}
+			}*/
+            long starttime = System.nanoTime();
+            YetAnotherSleep.sleep(-100);
+            System.out.println(System.nanoTime()-starttime+" nanos");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

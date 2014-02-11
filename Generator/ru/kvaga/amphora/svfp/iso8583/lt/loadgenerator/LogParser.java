@@ -10,10 +10,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -236,7 +232,7 @@ public class LogParser {
 				                   "  LOG_RESPONCE_TIMES:\"" + LOG_RESPONCE_TIMES + "\";\r\n" +
 				                   "  GROUP_TIME:" + GROUP_TIME + ".");
 		if (!new File(LOG_FILE_SENDER).exists() || !new File(LOG_FILE_RECEIVER).exists()) {
-			System.out.println("[ERROR] Files not exists!");
+			System.out.println("[ERROR] Log file sender or receiver not exist!");
 			System.exit(-1);
 		} else if (GROUP_TIME < 0) {
 			System.out.println("[ERROR] Incorrect GROUP time arg! Please select GROUP_TIME >= 0.");
